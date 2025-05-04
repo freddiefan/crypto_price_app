@@ -1,0 +1,111 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "57f8aa933e2b701b987b23800a2d9f4f",
+    "entities": [
+      {
+        "tableName": "Kline",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `symbol` TEXT NOT NULL COLLATE NOCASE, `eventTime` INTEGER NOT NULL, `openPrice` REAL NOT NULL, `closePrice` REAL NOT NULL, `highPrice` REAL NOT NULL, `lowPrice` REAL NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "symbol",
+            "columnName": "symbol",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventTime",
+            "columnName": "eventTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "openPrice",
+            "columnName": "openPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "closePrice",
+            "columnName": "closePrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "highPrice",
+            "columnName": "highPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lowPrice",
+            "columnName": "lowPrice",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_Kline_symbol",
+            "unique": false,
+            "columnNames": [
+              "symbol"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Kline_symbol` ON `${TABLE_NAME}` (`symbol`)"
+          },
+          {
+            "name": "index_Kline_eventTime",
+            "unique": false,
+            "columnNames": [
+              "eventTime"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Kline_eventTime` ON `${TABLE_NAME}` (`eventTime`)"
+          },
+          {
+            "name": "index_Kline_highPrice",
+            "unique": false,
+            "columnNames": [
+              "highPrice"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Kline_highPrice` ON `${TABLE_NAME}` (`highPrice`)"
+          },
+          {
+            "name": "index_Kline_lowPrice",
+            "unique": false,
+            "columnNames": [
+              "lowPrice"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Kline_lowPrice` ON `${TABLE_NAME}` (`lowPrice`)"
+          }
+        ]
+      }
+    ],
+    "views": [
+      {
+        "viewName": "KlineStatisticView",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT MIN(closePrice) as minValue, MAX(closePrice) as maxValue, symbol as symbol from Kline GROUP BY symbol ORDER BY symbol ASC"
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57f8aa933e2b701b987b23800a2d9f4f')"
+    ]
+  }
+}
