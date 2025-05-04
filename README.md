@@ -28,5 +28,7 @@ In addition, the app also asks users for permission to share with phone contacts
 This is used as an eventual integration with the crypto price tracker to be able to share the application with contacts, as well as receiving voice notifications.
 It's currectly only a placeholder to demonstrate the usage.
 
+*Note: Binance API is not supported in U.S. please use VPN to connect to another country where Binance is supported.
+
 ---
 
