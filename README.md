@@ -11,12 +11,9 @@ The projects use the following features:
 
 ### Real-time Crypto Price Tracking Sample
 
-| Android                                                                          | iOS                                                                      |
-|----------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| <img width="150" src="images/cryptocurrencies-android.png" alt="Android crypto"> | <img width="150" src="images/cryptocurrencies-ios.png" alt="iOS crypto"> |
-
-Project Files Structure
-<img width="150" src="images/crypto_project_structure.png" alt="Project structure"> 
+| Android                                                                          | iOS                                                                      | Project File Structure                                                              |
+|----------------------------------------------------------------------------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| <img width="150" src="images/cryptocurrencies-android.png" alt="Android crypto"> | <img width="150" src="images/cryptocurrencies-ios.png" alt="iOS crypto"> | <img width="150" src="images/crypto_project_structure.png" alt="Project structure"> |
 
 This project connect to crypto exchange API to query and display live crypto prices.
 It uses `Ktor-client` websockets to connect to Binance API for real-time cryptocurrency price tracking.
